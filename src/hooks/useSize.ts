@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import useWindowSize from './useWindowSize';
 
-export default (a, b) => {
+export default (a: number, b: number): [number, number] => {
   const [{ width: _w, height: _h }, setSize] = useState({
     width: a,
     height: b

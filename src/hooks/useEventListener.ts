@@ -1,7 +1,7 @@
 import { useRef, useEffect } from 'react';
 
-export default (eventName, handler) => {
-  const isClient = typeof window === 'object';
+export default (eventName: string, handler): void => {
+  const isClient: boolean = typeof window === 'object';
 
   const savedHandler = useRef(e => {});
 
@@ -20,7 +20,6 @@ export default (eventName, handler) => {
     const eventListener = event => savedHandler.current(event);
 
     window.addEventListener(eventName, eventListener);
-
     return () => {
       window.removeEventListener(eventName, eventListener);
     };
